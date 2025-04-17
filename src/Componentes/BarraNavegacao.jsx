@@ -19,7 +19,7 @@ export function BarraNavegacao(){
                     Serie
                 </li>
                 </Link>
-                <Link to='series'>
+                <Link to='perfil'>
                 <li>
                 <span class="material-symbols-outlined">person</span>
                     Perfil

@@ -3,18 +3,23 @@
     padding: 10px;
 }
 
+a{
+    list-style-type: none;
+    text-decoration: none;
+}
+
 ul{
     display: flex;
     list-style-type: none;
-    
 }
 li{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 30px;
     gap:15px;
-
+    list-style: none;
 }
+
 span{
     gap:5px;
     color:blueviolet;
