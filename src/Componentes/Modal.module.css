@@ -1,0 +1,70 @@
+.modalback{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.modalConteiner{
+    background-color: rgb(28,28,28);
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 90%;
+    max-height: 95%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+
+}
+
+.modalheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modalheader h2{
+    color: rgb(199,184,100);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.imgdetalhes{
+    display: flex;
+    gap: 20px;
+}
+
+.imgmodal{
+    width: 40%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.moviedetails{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    background-color: aqua;
+     border: 50px;
+     color: aliceblue;
+     font-size: 14px;
+     padding: 15px;
+     border: none;
+     cursor: pointer;
+     align-self: flex-start;
+}
