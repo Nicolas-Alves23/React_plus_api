@@ -25,7 +25,7 @@ export function Lista(){
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=6`)
                 ]);
 
-                // Junta os resultados das 2 páginas
+    
                 const allMovies = [
                     ...responses[0].data.results,
                     ...responses[1].data.results,
