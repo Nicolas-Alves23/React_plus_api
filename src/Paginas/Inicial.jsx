@@ -1,11 +1,13 @@
-import { Inicio_perfis } from '../Componentes/Pagina_inicial/Inicio_perfis';
+import { BarraNavegacao } from '../Componentes/BarraNavegacao';
 import { Cabecalho } from '../Componentes/Cabecalho';               
 import { Outlet } from 'react-router-dom';
 
 export function Inicial(){
     return(
         <>
-        <Inicio_perfis/>
+        <BarraNavegacao/>
+        <Cabecalho/>
+        <Outlet/>
         </>
     )
 }
