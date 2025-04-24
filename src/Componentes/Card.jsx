@@ -14,13 +14,13 @@ export function Card({ movie, onOpenModal }) {
                     onClick={() => onOpenModal(movie)}
                 />
             </div>
-            <div className={estilo.genre_movies}>
+            {/* <div className={estilo.genre_movies}>
                 <h3>
                     {movie.genre_names.map((genre, index) => (
                         <span key={index} className={estilo.genre}>{genre}</span>
                     ))}
                 </h3>
-            </div>
+            </div> */}
         </div>
     );
 }

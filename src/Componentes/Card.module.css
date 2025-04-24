@@ -2,25 +2,42 @@
     position: relative;
     width: 550px;
     margin: 30px;
-    height: 600px;
+    height: 610px;
     overflow: hidden;
     border-radius: 5px;
     transition: transform 0.3s ease;
-    background-color:#141414;
+    background-color:#2e2e2e;
     color: aliceblue;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
-
-        
+    cursor: pointer;
+    border: 1px solid rgb(54, 54, 54);
 }
 
+.conteiner:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
 
 .conteiner_text_card{
     width: 100%;
     display: flex;
     justify-content: center;
+}
 
+.conteiner_text_card h3{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 27px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .imagem{
@@ -32,6 +49,7 @@
 .img_card{
     height: 500px;
     width: 380px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 figure{
@@ -39,21 +57,22 @@ figure{
     flex-wrap: wrap;
     justify-content: center;
 }
-
+/* 
 .genre_movies {
     margin-top: 20px;
     display: flex;
-    flex-wrap: wrap; /* Para garantir que os gêneros se ajustem ao tamanho do contêiner */
+    flex-wrap: wrap; 
     width: 100%;
     overflow: hidden;
     justify-content: center;
+    height: 100%;
 }
 
 .genre {
-    margin-right: 10px;  /* Espaço entre os gêneros */
-    margin-bottom: 5px;  /* Para espaçar um pouco mais caso quebre linha */
-    background-color: #f0f0f0; /* Apenas um exemplo de fundo */
-    padding: 5px;
+    margin-right: 10px;  
+    margin-bottom: 5px;  
+    background-color: #f0f0f0; 
     border-radius: 5px;
     font-weight: bold;
-}
+    margin-top: 20px;
+} */
