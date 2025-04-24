@@ -31,10 +31,10 @@
 }
 
 .modalheader{
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    height: 100%;
 }
 
 .modalheader h2{
