@@ -8,16 +8,13 @@ const API_URL = 'https://api.themoviedb.org/3';
 const API_key = 'af26cce282aecf5c6cc39a264f29d0a7';
 
 export function Lista() {
-    const [movies, setMovies] = useState([])
-    const [SelectedMovie, setSelectedMovie] = useState(null)
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
-
-    //()parametros {}script de programação , []dependencias
+    // Função para buscar os filmes populares
     useEffect(() => {
-        // Função para pegar os filmes e filtrar por descrição
         const fetchMovies = async () => {
             try {
-
                 const responses = await Promise.all([
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=1`),
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=2`),
@@ -29,7 +26,6 @@ export function Lista() {
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=8`),
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=9`)
                 ]);
-
 
                 const allMovies = [
                     ...responses[0].data.results,
@@ -43,46 +39,39 @@ export function Lista() {
                     ...responses[8].data.results,
                 ];
 
-
-                // 👇 Adicione esta parte que estava faltando
                 const moviesWithDescription = allMovies.filter(
                     movie => movie.overview && movie.overview.trim() !== ""
                 );
 
-                // Buscar gêneros
                 const genreResponse = await axios.get(`${API_URL}/genre/movie/list?api_key=${API_key}&language=pt-BR`);
                 const genres = genreResponse.data.genres;
                 const genreMap = new Map(genres.map(genre => [genre.id, genre.name]));
 
-                // Substituir genre_ids por nomes
                 const moviesWithGenres = moviesWithDescription.map(movie => ({
                     ...movie,
                     genre_names: movie.genre_ids.map(id => genreMap.get(id)).filter(Boolean)
                 }));
 
-                // Remover duplicatas
                 const uniqueMovies = Array.from(new Map(moviesWithGenres.map(movie => [movie.id, movie])).values());
 
                 setMovies(uniqueMovies);
-
-
-                console.log(allMovies)
             } catch (error) {
                 console.log('Erro ao carregar filmes', error);
             }
         };
 
         fetchMovies();
-    }, []); // Apenas uma vez quando o componente é montado
+    }, []);
 
+    // Função para abrir o modal
     const handleOpenModal = (movie) => {
-        setSelectedMovie(movie)
-    }
+        setSelectedMovie(movie);
+    };
 
+    // Função para fechar o modal
     const handleCloseModal = () => {
-        setSelectedMovie(null)
-    }
-
+        setSelectedMovie(null);
+    };
 
     return (
         <div>
@@ -94,8 +83,10 @@ export function Lista() {
                     />
                 ))}
             </figure>
-            {SelectedMovie && (<Modal movie={SelectedMovie} onClose={handleCloseModal} />)}
-        </div>
-    )
 
+            {selectedMovie && (
+                <Modal movie={selectedMovie} onClose={handleCloseModal} />
+            )}
+        </div>
+    );
 }
