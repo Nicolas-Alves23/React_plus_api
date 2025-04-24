@@ -1,15 +1,36 @@
-.conteiner{
+.conteiner {
     display: flex;
     align-items: center;
-    gap:10px;
-    background-color: #141414;
-    color:white;
+    gap: 10px;
+    background-color: black;
+    color: white;
     height: 100px;
 }
 
-h1{
-    font-family: "Dancing Script", cursive;
+h1 {
+    margin: auto;
     font-size: 60px;
-    color: rgb(213,173,53);
-    margin:auto;
+    color: rgb(213, 173, 53);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 555;
+    font-style: normal;
 }
+:root {
+    --gradient: linear-gradient(   
+        to right, 
+        rgba(166, 0, 0, 1) 35%, 
+        rgba(255, 0, 0, 0.83) 100%
+        )
+  }
+  
+  .linear_gradient_in_text{
+    background-image: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 80px;
+  }

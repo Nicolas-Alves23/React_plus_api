@@ -1,7 +1,8 @@
 .conteiner{
     position: relative;
-    width: 380px;
+    width: 550px;
     margin: 30px;
+    height: 600px;
     overflow: hidden;
     border-radius: 5px;
     transition: transform 0.3s ease;
@@ -10,7 +11,22 @@
     font-family: "Poppins", sans-serif;
     font-weight: 200;
     font-style: normal;
+
         
+}
+
+
+.conteiner_text_card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.imagem{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .img_card{
@@ -22,4 +38,22 @@ figure{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.genre_movies {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Para garantir que os gêneros se ajustem ao tamanho do contêiner */
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.genre {
+    margin-right: 10px;  /* Espaço entre os gêneros */
+    margin-bottom: 5px;  /* Para espaçar um pouco mais caso quebre linha */
+    background-color: #f0f0f0; /* Apenas um exemplo de fundo */
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
 }
