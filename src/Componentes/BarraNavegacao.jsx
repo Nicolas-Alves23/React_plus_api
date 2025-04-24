@@ -10,18 +10,18 @@ export function BarraNavegacao(){
                 <Link to='/'>
                 <li>
                     Home
-                    <span class="material-symbols-outlined">home</span>
+                    <span className="material-symbols-outlined">home</span>
                 </li>
                 </Link>
                 <Link to='series'>
                 <li>
-                    <span class="material-symbols-outlined">tv</span>
+                    <span className="material-symbols-outlined">tv</span>
                     Serie
                 </li>
                 </Link>
                 <Link to='perfil'>
                 <li>
-                <span class="material-symbols-outlined">person</span>
+                <span className="material-symbols-outlined">person</span>
                     Perfil
                 </li>
                 </Link>

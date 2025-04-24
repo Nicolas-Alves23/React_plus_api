@@ -7,6 +7,9 @@
     transition: transform 0.3s ease;
     background-color:#141414;
     color: aliceblue;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
         
 }
 

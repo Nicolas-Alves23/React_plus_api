@@ -5,7 +5,7 @@ export function Card({ movie , onOpenModal}){
         <div className={estilo.conteiner}>
             <h3>{movie.title}</h3>
             <img className={estilo.img_card}src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} onClick={()=> onOpenModal(movie)}/>
-            <p>{movie.overview}</p>
+            <h3>{movie.genre_names}</h3>
         </div>
     );
 }

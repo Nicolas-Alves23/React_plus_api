@@ -16,6 +16,7 @@ export function Modal({ movie , onClose}) {
                     <button onClick={onClose}>X</button>
                     <img  className= {estilo.imgmodal} src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
                     <div className={estilo.imgdetalhes}>
+                    <p>{movie.overview}</p>
                         <ul>
                             <li>{`Popularidade : ${movie.popularity}`}</li>
                             <li>{`Data de Lançamento : ${movie.release_date}`}</li>
