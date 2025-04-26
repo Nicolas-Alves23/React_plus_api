@@ -3,15 +3,17 @@ import React, { useState, useEffect } from "react";
 import { Card } from './Card';
 import { Modal } from './Modal';
 import style from "./Lista.module.css";
+import { Loading } from "./Loading";
+import { motion } from 'framer-motion';
 
 const API_URL = 'https://api.themoviedb.org/3';
 const API_key = 'af26cce282aecf5c6cc39a264f29d0a7';
 
 export function Lista() {
+    const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
-    // Função para buscar os filmes populares
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -27,17 +29,7 @@ export function Lista() {
                     axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=9`)
                 ]);
 
-                const allMovies = [
-                    ...responses[0].data.results,
-                    ...responses[1].data.results,
-                    ...responses[2].data.results,
-                    ...responses[3].data.results,
-                    ...responses[4].data.results,
-                    ...responses[5].data.results,
-                    ...responses[6].data.results,
-                    ...responses[7].data.results,
-                    ...responses[8].data.results,
-                ];
+                const allMovies = responses.flatMap(response => response.data.results);
 
                 const moviesWithDescription = allMovies.filter(
                     movie => movie.overview && movie.overview.trim() !== ""
@@ -55,26 +47,35 @@ export function Lista() {
                 const uniqueMovies = Array.from(new Map(moviesWithGenres.map(movie => [movie.id, movie])).values());
 
                 setMovies(uniqueMovies);
+
             } catch (error) {
                 console.log('Erro ao carregar filmes', error);
+            } finally {
+                setIsLoading(false); // SÓ AQUI libera a tela
             }
         };
 
         fetchMovies();
     }, []);
 
-    // Função para abrir o modal
     const handleOpenModal = (movie) => {
         setSelectedMovie(movie);
     };
 
-    // Função para fechar o modal
     const handleCloseModal = () => {
         setSelectedMovie(null);
     };
 
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
-        <div>
+        <motion.div 
+            initial= {{opacity: 0 , scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            >
             <figure>
                 {movies.map(movie => (
                     <Card key={movie.id}
@@ -87,6 +88,6 @@ export function Lista() {
             {selectedMovie && (
                 <Modal movie={selectedMovie} onClose={handleCloseModal} />
             )}
-        </div>
+        </motion.div>
     );
 }
