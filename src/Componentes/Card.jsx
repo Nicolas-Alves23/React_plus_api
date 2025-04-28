@@ -1,11 +1,15 @@
 import estilo from './Card.module.css';
+import { motion } from 'framer-motion'
+
 
 export function Card({ movie, onOpenModal }) {
     return (
-        <div className={estilo.conteiner}>
-            <div className={estilo.conteiner_text_card}>
-                <h3>{movie.title}</h3>
-            </div>
+        <motion.div 
+            initial = {{ opacity: 0, scale: 0.95}}
+            animate = {{ opacity: 1, scale: 1}}
+            transition = {{ duration: 0.5 }}
+            className={estilo.conteiner}
+        >
             <div className={estilo.imagem}>
 
                 <img
@@ -21,6 +25,6 @@ export function Card({ movie, onOpenModal }) {
                     ))}
                 </h3>
             </div> */}
-        </div>
+        </motion.div>
     );
 }

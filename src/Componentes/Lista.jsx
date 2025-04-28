@@ -28,7 +28,7 @@ export function Lista() {
     // Carregar filmes e tratar dados
     const fetchMovies = async () => {
       try {
-        const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10 , 11 , 12];
 
         const requests = pageNumbers.map((page) =>
           axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=${page}`)
@@ -43,10 +43,6 @@ export function Lista() {
           movie => movie.overview && movie.overview.trim() !== ""
         );
 
-        const movieWithTrailer = allMovies.filter(
-            movie => movie.video && movie.video.trim() !== ""
-        );
-
         // Buscar gêneros
         const genreResponse = await axios.get(`${API_URL}/genre/movie/list?api_key=${API_key}&language=pt-BR`);
         const genres = genreResponse.data.genres;
@@ -58,8 +54,32 @@ export function Lista() {
           genre_names: movie.genre_ids.map(id => genreMap.get(id)).filter(Boolean)
         }));
 
+        // Buscar trailer para cada filme
+        const moviesWithTrailer = await Promise.all(
+          moviesWithGenres.map(async (movie) => {
+            try {
+              const trailerResponse = await axios.get(`${API_URL}/movie/${movie.id}/videos?api_key=${API_key}&language=pt-BR`);
+              const trailerData = trailerResponse.data.results.find(video => video.type === "Trailer");
+              if (trailerData) {
+                return {
+                  ...movie,
+                  trailerKey: trailerData.key
+                };
+              } else {
+                return null; // Filme sem trailer
+              }
+            } catch (error) {
+              console.log('Erro ao buscar trailer para filme:', movie.title);
+              return null;
+            }
+          })
+        );
+
+        // Remover filmes sem trailer
+        const finalMovies = moviesWithTrailer.filter(Boolean);
+
         // Remover duplicatas
-        const uniqueMovies = Array.from(new Map(moviesWithGenres.map(movie => [movie.id, movie])).values());
+        const uniqueMovies = Array.from(new Map(finalMovies.map(movie => [movie.id, movie])).values());
 
         setMovies(uniqueMovies);
 
