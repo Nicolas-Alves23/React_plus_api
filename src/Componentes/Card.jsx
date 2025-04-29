@@ -18,9 +18,7 @@ export function Card({ movie, onOpenModal }) {
                 />
             </div>
             <div>
-                <h1>
-                    Nicolas
-                </h1>
+    
             </div>
             {/* <div className={estilo.genre_movies}>
                 <h3>

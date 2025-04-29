@@ -75,3 +75,17 @@ button{
      cursor: pointer;
      align-self: flex-start;
 }
+
+.numbers{
+    color: #6134d3;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.numbers_about_film{
+    display: flex;
+    justify-content: space-around;
+}

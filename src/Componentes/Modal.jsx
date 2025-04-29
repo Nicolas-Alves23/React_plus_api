@@ -27,6 +27,14 @@ export function Modal({ movie, onClose }) {
                         <p>Trailer não disponível.</p>
                     )}
                 </div>
+                <div className={estilo.numbers_about_film}>
+                    <h2>Opinião do Pública</h2>
+                    <p className={estilo.numbers}>{movie.vote_average}</p>
+                    <h2>Quantidade de Votos</h2>
+                    <p className={estilo.numbers}>{movie.vote_count}</p>
+                    <h2>Popularidade</h2>
+                    <p className={estilo.numbers}>{movie.popularity}</p>
+                </div>
             </div>
         </div>
     );
