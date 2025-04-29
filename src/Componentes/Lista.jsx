@@ -34,9 +34,11 @@ export function Lista() {
           axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR&page=${page}`)
         );
 
-        const responses = await Promise.all(requests);
 
+        const responses = await Promise.all(requests);
+        
         const allMovies = responses.flatMap(response => response.data.results);
+        console.log(allMovies)
 
         // Filtrar filmes que possuem descrição
         const moviesWithDescription = allMovies.filter(
@@ -83,13 +85,13 @@ export function Lista() {
 
         setMovies(uniqueMovies);
 
+        
       } catch (error) {
         console.log('Erro ao carregar filmes', error);
       } finally {
         setApiLoaded(true);
       }
     };
-
     fetchMovies();
   }, []);
 

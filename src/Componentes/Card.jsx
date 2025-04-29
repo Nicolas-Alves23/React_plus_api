@@ -11,12 +11,16 @@ export function Card({ movie, onOpenModal }) {
             className={estilo.conteiner}
         >
             <div className={estilo.imagem}>
-
                 <img
                     className={estilo.img_card}
                     src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     onClick={() => onOpenModal(movie)}
                 />
+            </div>
+            <div>
+                <h1>
+                    Nicolas
+                </h1>
             </div>
             {/* <div className={estilo.genre_movies}>
                 <h3>

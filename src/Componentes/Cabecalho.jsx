@@ -1,5 +1,4 @@
 import estilo from './Cabecalho.module.css';
-import video from '../img/trailer/trailer.mp4'
 
 export function Cabecalho() {
     return (
