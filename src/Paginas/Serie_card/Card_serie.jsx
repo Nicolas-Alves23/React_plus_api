@@ -2,7 +2,7 @@ import estilo from './Card_serie.module.css';
 import { motion } from 'framer-motion'
 
 
-export function Card_serie({ serie, onOpenModal }) {
+export function Card_serie({ serie, onOpenModal_serie }) {
     return (
         <motion.div 
             initial = {{ opacity: 0, scale: 0.95}}
@@ -14,7 +14,7 @@ export function Card_serie({ serie, onOpenModal }) {
                 <img
                     className={estilo.img_card}
                     src={`http://image.tmdb.org/t/p/w500/${serie.poster_path}`}
-                    onClick={() => onOpenModal(serie)}
+                    onClick={() => onOpenModal_serie(serie)}
                 />
             </div>
             <div>

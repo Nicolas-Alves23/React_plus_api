@@ -11,6 +11,14 @@ export function Modal_serie({ serie, onClose }) {
                 <div className={style.modalheader}>
                     <button onClick={onClose}>X</button>
                 </div>
+                <div>
+                    <div>
+                        <img
+                            src={`http://image.tmdb.org/t/p/w500/${serie.poster_path}`}
+                        />
+                        
+                    </div>
+                </div>
                 <div className={style.numbers_about_film}>
                     <div className={style.text_in_modal}>
                         <h2>Opinião do Pública</h2>

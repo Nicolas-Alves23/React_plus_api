@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Loading } from "../../Componentes/Loading";
 import { Card_serie } from "./Card_serie";
 import { Modal_serie } from "./Modal_serie";
-import axios from "axios";
+import axios, { all } from "axios";
 import style from "./Lista_serie.module.css";
 
 const API_URL = 'https://api.themoviedb.org/3';
@@ -26,6 +26,8 @@ export function Lista_serie() {
   useEffect(() => {
     const fetchSeries = async () => {
       try {
+        // pegando as séries (5 page's)
+        // um código quase que identico do arquivo 'Lista.jsx'
         const pageNumbers = [1, 2, 3, 4, 5]; 
 
         const requests = pageNumbers.map((page) =>
@@ -35,8 +37,13 @@ export function Lista_serie() {
         const responses = await Promise.all(requests);
         const allSeries = responses.flatMap(response => response.data.results);
 
+        const serieWithPoster = allSeries.filter(
+          serie => serie.poster_path && serie.poster_path.trim() !== ""
+        );
+
+        console.log(allSeries);
         // Remover duplicatas
-        const uniqueSeries = Array.from(new Map(allSeries.map(serie => [serie.id, serie])).values());
+        const uniqueSeries = Array.from(new Map(serieWithPoster.map(serie => [serie.id, serie])).values());
 
         setSeries(uniqueSeries);
       } catch (error) {
