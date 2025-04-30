@@ -3,9 +3,10 @@
     padding: 10px;
     display: flex;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;    
+    font-family: Poppins;    
     height: 80.5vh;
     width: 100vw;
+    align-items: center;
 }
 .ft_perfil img{
     width: 250px;
@@ -21,10 +22,6 @@
     width: 100%;
 }
 
-
-.text_name_user_and_about{
-    
-}
 .text_name_user_and_about h1{
     color: azure;
     font-family: Poppins;

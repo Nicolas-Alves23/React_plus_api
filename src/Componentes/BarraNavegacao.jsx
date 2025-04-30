@@ -9,8 +9,8 @@ export function BarraNavegacao(){
             <ul>
                 <Link to='/'>
                 <li>
-                    Home
                     <span className="material-symbols-outlined">home</span>
+                    Home
                 </li>
                 </Link>
                 <Link to='series'>
